@@ -93,6 +93,7 @@ The third query corresponds to returning the first word of the first sentence of
 #define MAX_CHARACTERS 1005
 #define MAX_PARAGRAPHS 5
 
+
 char** split_string(char* text, char delimeter){
     int n=1;
     char** parts = malloc(n * sizeof(char*));
@@ -106,20 +107,21 @@ char** split_string(char* text, char delimeter){
     }
     return parts;
 }
+
 char* kth_word_in_mth_sentence_of_nth_paragraph(char**** document, int k, int m, int n) {
-return document[n-1][m-1][k-1];
+    return document[n-1][m-1][k-1];
 }
 
-char** kth_sentence_in_mth_paragraph(char**** document, int k, int m) { 
- return document[m-1][k-1];
+char** kth_sentence_in_mth_paragraph(char**** document, int k, int m) {
+    return document[m-1][k-1];
 }
 
 char*** kth_paragraph(char**** document, int k) {
- return document[k-1];
+    return document[k-1];
 }
 
 char**** get_document(char* text) {
-int number_of_paragraphs=0, number_of_sentences=0, i=0, j=0;
+    int number_of_paragraphs=0, number_of_sentences=0, i=0, j=0;
     char** paragraphs = split_string(text, '\n');
     while(paragraphs[number_of_paragraphs] != NULL){
         number_of_paragraphs++;
@@ -144,7 +146,7 @@ int number_of_paragraphs=0, number_of_sentences=0, i=0, j=0;
 }
 
 
-char* get_input_text() {	
+char* get_input_text() {
     int paragraph_count;
     scanf("%d", &paragraph_count);
 
@@ -175,7 +177,7 @@ void print_sentence(char** sentence) {
         if( i != word_count - 1)
             printf(" ");
     }
-} 
+}
 
 void print_paragraph(char*** paragraph) {
     int sentence_count;
@@ -186,7 +188,7 @@ void print_paragraph(char*** paragraph) {
     }
 }
 
-int main() 
+int main()
 {
     char* text = get_input_text();
     char**** document = get_document(text);
@@ -219,5 +221,5 @@ int main()
             print_paragraph(paragraph);
         }
         printf("\n");
-    }     
+    }
 }
